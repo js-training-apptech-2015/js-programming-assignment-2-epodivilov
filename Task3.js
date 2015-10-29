@@ -1,38 +1,23 @@
 function solution3 (array, func) {
-    var mapedFunc = parseFunc(func);
+    var mappedFunc = parseFunc(func);
     for (var i = 0; i < array.length; i++) {
-        array[i] = mapedFunc(array[i]);
+        array[i] = mappedFunc(array[i]);
     }
 
     return array;
 }
 
 function parseFunc(string) {
-    var regArgs = /\((.*)\)/;
-    var regBody = />(.*)/;
-    var arguments;
-    var body;
+    var regExp = /\((.*)\)=>(.*)/.exec(string);
 
-    if (regArgs.test(string)) {
-        arguments = regArgs.exec(string)[1];
-        if (/,/.test(arguments)) {
-            arguments = arguments.split(',');
-        }
-    } else {
-        arguments = [];
-    }
-
-    if (regBody.test(string)) {
-        body = "return " + regBody.exec(string)[1] + ";";
-    } else {
-        body = "return;"
-    }
+    var arguments = regExp[1];
+    var body = "return " + regExp[2];
 
     return new Function(arguments, body);
 }
 
 
 
-//console.log("solution3([1,2,3], '(a)=>a*2') | " + solution3([1,2,3], '(a)=>a*2'));
-//console.log("solution3([1,2,3], '(a)=>a+2') | " + solution3([1,2,3], '(a)=>a+2'));
-//console.log("solution3([1,2,3], '()=>1') | " + solution3([1,2,3], '()=>1'));
+console.log("solution3([1,2,3], '(a)=>a*2') | " + solution3([1,2,3], '(a)=>a*2'));
+console.log("solution3([1,2,3], '(a)=>a+2') | " + solution3([1,2,3], '(a)=>a+2'));
+console.log("solution3([1,2,3], '()=>1') | " + solution3([1,2,3], '()=>1'));
