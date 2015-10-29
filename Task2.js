@@ -24,10 +24,3 @@ function isBktBalanced (string) {
     }
     return !Boolean(stack.length);
 }
-
-console.log(' "" = ' + isBktBalanced('""'));
-//console.log(' [] = ' + isBktBalanced('[]'));
-//console.log(' [()] = ' + isBktBalanced('[()]'));
-//console.log(' [](){} = ' + isBktBalanced('[](){}'));
-//console.log(' ][ = ' + isBktBalanced(']['));
-//console.log(' [{]} = ' + isBktBalanced('[{]}'));
