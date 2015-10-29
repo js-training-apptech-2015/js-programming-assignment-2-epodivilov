@@ -1,4 +1,4 @@
-function isBktBalanced (string) {
+function solution2 (string) {
     var brackets = "[]{}()";
     var stack = [];
     var i = 0;
